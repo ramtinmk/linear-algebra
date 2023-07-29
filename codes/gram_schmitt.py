@@ -16,7 +16,7 @@ def v_project_on_u(v, u):
 def gram_schmidt(vectors):
     e = []
     # Normalize the first vector and add it to the orthogonalized list 'e'.
-    e1 = vectors[0] / np.linalg.norm(vectors[0])
+    e1 = vectors[0] #/ np.linalg.norm(vectors[0])
     e.append(list(e1))
 
     # Loop through the rest of the vectors to orthogonalize them.
@@ -28,12 +28,12 @@ def gram_schmidt(vectors):
         ej = vectors[i] - s
 
         # Normalize the orthogonalized vector.
-        ej = ej / (np.linalg.norm(ej))
+        ej = ej #/ (np.linalg.norm(ej))
         e.append(list(ej))
 
     return e
 
 # Example usage with a 3x4 matrix.
-print(gram_schmidt(np.array([[1, 2, 0, 3], [4, 0, 5, 8], [8, 1, 5, 6]])))
+#print(gram_schmidt(np.array([[1, 2, 0, 3], [4, 0, 5, 8], [8, 1, 5, 6]])))
 
     
