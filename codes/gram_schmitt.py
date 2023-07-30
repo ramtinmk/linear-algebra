@@ -34,6 +34,7 @@ def gram_schmidt(vectors):
     return e
 
 # Example usage with a 3x4 matrix.
-#print(gram_schmidt(np.array([[1, 2, 0, 3], [4, 0, 5, 8], [8, 1, 5, 6]])))
+if __name__=='__main__':
+    print(gram_schmidt(np.array([[1, 2, 0, 3], [4, 0, 5, 8], [8, 1, 5, 6]])))
 
     

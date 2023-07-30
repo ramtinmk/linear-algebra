@@ -1,5 +1,8 @@
 import numpy as np
 from gram_schmitt import *  # Assuming the 'gram_schmitt' module is available and contains the required functions.
+from gaussian_elimination import *
+
+
 
 def Qr_factorization(vectors):
     """
@@ -40,8 +43,11 @@ def Qr_factorization(vectors):
     return Q, R
 
 # Example usage:
-inp = np.array([[1, 3],
-                [0, -1],
-                [2, 0]])
 
-Q, R = Qr_factorization(inp)
+if __name__=="__main__":
+    inp = np.array([[1, 3,3],
+                    [-1,1,2],
+                    [3,4,5]])
+
+    Q, R = Qr_factorization(inp)
+    print(Q,R)
