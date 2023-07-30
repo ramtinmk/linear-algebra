@@ -16,7 +16,7 @@ def gaussian_elimination(matrix):
         for k in range(i + 1, m):
             factor = matrix[k, i]
             matrix[k, :] -= factor * matrix[i, :]
-        
+        # Eliminate non-zero elements above the diagonal
         for l in range(i):
           factor = matrix[l,i]
           matrix[l,:] -= factor * matrix[i,:]
