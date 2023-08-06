@@ -7,7 +7,7 @@ def scaling(matrix):
     matrix = matrix / max_values
     return matrix
     
-def gaussian_elimination(matrix):
+def gaussian_elimination(matrix,pivoting=True):
     m, n = matrix.shape
     
 
@@ -15,8 +15,9 @@ def gaussian_elimination(matrix):
     matrix = scaling(matrix)
     for i in range(min(m, n)):
         # Find the maximum row in the current column and swap
-        max_row = np.argmax(np.abs(matrix[i:, i])) + i
-        matrix[[i, max_row]] = matrix[[max_row, i]]
+        if pivoting:
+            max_row = np.argmax(np.abs(matrix[i:, i])) + i
+            matrix[[i, max_row]] = matrix[[max_row, i]]
 
         # Make the diagonal element 1
         diag_element = matrix[i, i]
