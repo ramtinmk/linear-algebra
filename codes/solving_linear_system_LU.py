@@ -1,6 +1,6 @@
 import numpy as np
 from LU_decomposition import *
-
+from matrix_rank import *
 
 def forward_substitution(matrix, b):
     """
@@ -65,11 +65,21 @@ def solve(matrix,b):
 
 if __name__=="__main__":
   matrix = np.array([[4, -2, 2],
-                       [4, -3, -2],
+                       [8, -4, 4],
                        [2, 3, -1]])
-  b = np.array([[6,-8,5]]).T
-  X = solve(matrix,b)
+  b = np.array([[6,10,5]]).T
+  A_rank = Matrix_rank(matrix)
+  additive_matrix_rank = Matrix_rank(np.hstack((matrix,b)))
   
-  print(X)
+  
+  if A_rank==additive_matrix_rank==matrix.shape[0]:
+    X = solve(matrix,b)
+    print("solution is: ",X)
+  elif (A_rank==additive_matrix_rank)  and A_rank<matrix.shape[0]:
+      print("there are infinite solutions")
+  else:
+      print("system has no solution")
+      
+  
 
 

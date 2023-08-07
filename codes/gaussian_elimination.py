@@ -1,5 +1,4 @@
 import numpy as np
-from solving_linear_system_LU import backward_substitution
 
 def scaling(matrix):
     max_values = np.max(matrix, axis=1, keepdims=True)
@@ -13,25 +12,22 @@ def gaussian_elimination(matrix,pivoting=True):
 
     
     matrix = scaling(matrix)
+    
     for i in range(min(m, n)):
         # Find the maximum row in the current column and swap
         if pivoting:
             max_row = np.argmax(np.abs(matrix[i:, i])) + i
             matrix[[i, max_row]] = matrix[[max_row, i]]
-
-        # Make the diagonal element 1
-        diag_element = matrix[i, i]
-        matrix[i, :] /= diag_element
-
+        
         # Eliminate non-zero elements below the diagonal
         for k in range(i + 1, m):
-            factor = matrix[k, i]
+            factor = matrix[k, i] / matrix[i, i]  # Division by diagonal element
             matrix[k, :] -= factor * matrix[i, :]
         #Eliminate non-zero elements above the diagonal
         for l in range(i):
-          factor = matrix[l,i]
+          factor = matrix[l,i]/matrix[i,i]
           matrix[l,:] -= factor * matrix[i,:]
-
+          
     return matrix
 
 # Example usage:

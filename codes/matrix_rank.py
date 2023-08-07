@@ -5,6 +5,7 @@ from gaussian_elimination import *
 def Matrix_rank(matrix):
     # Use Gaussian Elimination to transform the matrix into its reduced row echelon form
     eliminated = gaussian_elimination(matrix)
+    
 
     # Count the number of non-zero elements in each row of the reduced row echelon form
     temp = np.count_nonzero(eliminated, axis=1)
