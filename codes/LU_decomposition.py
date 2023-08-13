@@ -32,9 +32,9 @@ def LU_decomposition(matrix):
 
 if __name__ == "__main__":
     # Example matrix for LU decomposition
-    matrix = np.array([[4, -2, 2],
-                       [4, -3, -2],
-                       [2, 3, -1]])
+    matrix = np.array([[2, 1, 0],
+                       [10, 11, 3],
+                       [0,-42, -13]])
 
     L, U = LU_decomposition(matrix)
     print("Lower Triangular Matrix (L):")

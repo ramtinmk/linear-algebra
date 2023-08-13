@@ -14,22 +14,6 @@ def cholesky_decomposition(matrix):
 
     return L
 
-import numpy as np
-
-def custom_ldl_decomposition(matrix):
-    matrix = np.array(matrix)
-    n = matrix.shape[0]
-    L = np.eye(n)
-    D = np.zeros_like(matrix, dtype=float)
-
-    for j in range(n):
-        for i in range(j, n):
-            if i == j:
-                D[j, j] = matrix[j, j] - np.sum(L[i, :i]**2 * D[:i, i])
-            else:
-                L[i, j] = (matrix[i, j] - np.sum(L[i, :j] * D[:j, j] * L[j, :j])) / D[j, j]
-
-    return L, D
 
 
 

@@ -64,10 +64,11 @@ def solve(matrix,b):
 
 
 if __name__=="__main__":
-  matrix = np.array([[4, -2, 2],
-                       [8, -4, 4],
-                       [2, 3, -1]])
-  b = np.array([[6,10,5]]).T
+  matrix = np.array([[4, -1, 0,0],
+                       [16,-1, 2,0],
+                       [0, 15, 8,5],
+                       [0,0,-2,13]])
+  b = np.array([[13,65,66,9]]).T
   A_rank = Matrix_rank(matrix)
   additive_matrix_rank = Matrix_rank(np.hstack((matrix,b)))
   

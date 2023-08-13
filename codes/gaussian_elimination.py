@@ -15,9 +15,9 @@ def gaussian_elimination(matrix,pivoting=True):
     
     for i in range(min(m, n)):
         # Find the maximum row in the current column and swap
-        if pivoting:
-            max_row = np.argmax(np.abs(matrix[i:, i])) + i
-            matrix[[i, max_row]] = matrix[[max_row, i]]
+        # if pivoting:
+        #     max_row = np.argmax(np.abs(matrix[i:, i])) + i
+        #     matrix[[i, max_row]] = matrix[[max_row, i]]
         
         # Eliminate non-zero elements below the diagonal
         for k in range(i + 1, m):
@@ -34,9 +34,9 @@ def gaussian_elimination(matrix,pivoting=True):
 if __name__ == "__main__":
     # Example system of linear equations in matrix form (Ax = B)
     A = np.array([
-        [1, -1, 1,1],
-        [2, 7, -1,8],
-        [15,1, -8,8]
+        [6,6,3,15],
+        [1,4,8,13],
+        [10e4,2, 10,12]
     ], dtype=float)
 
     # Perform forward elimination
