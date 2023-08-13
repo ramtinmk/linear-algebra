@@ -8,7 +8,7 @@ def jacobi_method(A,b,num_iteration=100):
     X = np.zeros(len(b))
     
     X = b/np.diag(A)
-    
+    print(X)
     
     for i in range(num_iteration):
       newX = np.zeros(len(A))
@@ -26,10 +26,12 @@ def jacobi_method(A,b,num_iteration=100):
 
 
 if __name__=="__main__":
-  A = np.array([[10,1,-1],
-                [3,-5,4],
-                [1,-3,10]])
-  b = np.array([9,5,25]).T
+  A = np.array([[2,-1,1],
+                [-2,5,-1],
+                [-1,-2,4]])
+  b = np.array([-1,1,3]).T
   
-  print(jacobi_method(A,b))
+  X = jacobi_method(A,b)
+  
+  assert np.allclose(np.matmul(A,X),b.T)
   
