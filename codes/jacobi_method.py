@@ -36,6 +36,18 @@ def jacobi_method(A, b, num_iteration=100):
       
     return X
 
+
+def jacobi_method_matrix_form(A,b,num_iteration=100):
+    X = np.zeros(len(A))
+    for _ in range(num_iteration):
+        D = np.diag(A)
+        L = np.tril(A,k=-1)
+        U = np.triu(A,k=1)
+        X = (np.matmul(-(L+U),X))/D + b/D
+    
+    return X
+    
+        
 # Entry point of the program.
 if __name__ == "__main__":
     # Define the coefficient matrix A and the constant vector b for the linear equations.
@@ -45,8 +57,8 @@ if __name__ == "__main__":
     b = np.array([-1, 1, 3]).T
     
     # Call the jacobi_method function to solve the linear equations.
-    X = jacobi_method(A, b)
-    
+    X = jacobi_method_matrix_form(A, b)
+    print(X)
     # Check if the obtained solution X satisfies the original equation Ax = b.
     assert np.allclose(np.matmul(A, X), b.T)  # Check if Ax is close to b.
 
